@@ -1,0 +1,10 @@
+construction:
+docker build -t mon-site .
+
+execution:
+docker run -it --rm -p 80:80 mon-site
+
+
+avec swarm et les sessions sur un partage SMB:
+au lancement du service (attention aux ' & ")
+docker service create --replicas=3 --mount 'type=volume,src=smbSessions,dst=/sessions,volume-driver=local,volume-opt=type=cifs,volume-opt=device=//192.168.9.53/tmp/tmp-php-sessions/,"volume-opt=o=username=user1,password=a,file_mode=0777,dir_mode=0777"'  --name=site-jcd -p 81:80 mon-site

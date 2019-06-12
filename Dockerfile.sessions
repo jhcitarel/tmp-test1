@@ -1,0 +1,11 @@
+FROM php:7.1-cli
+
+WORKDIR /home
+EXPOSE 80
+COPY primes.php index.php
+
+RUN \
+echo 'session.save_path = "/sessions"' > /usr/local/etc/php/php.ini
+
+CMD php -S 0.0.0.0:80
+
