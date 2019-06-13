@@ -71,6 +71,7 @@ $textListPrimes = substr($textListPrimes, 0, -2);
 
 <body>
     <h1>
+	Version 2</br>
         Hôte: <?php echo $hostname . " (" . $ip . ")"; ?>
     </h1>
     <p><div class="textRefreshs">
